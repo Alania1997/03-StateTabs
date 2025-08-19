@@ -1,48 +1,7 @@
 import "./index.css";
 import { useState } from "react";
+import { cardData } from "./cardData";
 
-const cardData = [
-  {
-    title: "Mocha",
-    description: "Developing a fintech product for the international market",
-    date: "April 24, 2024",
-    imageUrl: "/img-1.jpeg",
-    tags: ["#fintech", "#international", "#market"],
-    archived: false,
-  },
-  {
-    title: "Money Forward",
-    description: "Frontend and backend for a salary payout service on demand",
-    date: "January 16, 2024",
-    imageUrl: "/img-2.jpeg",
-    tags: ["#finance", "#service", "#payouts"],
-    archived: false,
-  },
-  {
-    title: "ActivePlatform",
-    description: "Adobe integration and platform development for comprehensive subscriptions",
-    date: "November 10, 2022",
-    imageUrl: "/img-4.jpeg",
-    tags: ["#integration", "#platform", "#subscription"],
-    archived: false,
-  },
-  {
-    title: "START",
-    description: "Developed an A/B testing platform for a streaming service",
-    date: "September 22, 2022",
-    imageUrl: "/img-5.jpeg",
-    tags: ["#A/B testing", "#streaming", "#platform"],
-    archived: false,
-  },
-  {
-    title: "Mindbox",
-    description: "Supporting the redesign of an automated marketing platform",
-    date: "September 21, 2022",
-    imageUrl: "/img-6.jpeg",
-    tags: ["#marketing", "#redesign", "#automation"],
-    archived: false,
-  },
-];
 
 // Grouping cards into three tabs
 const tabData = [
@@ -63,6 +22,8 @@ const handleBack = () => {
   setIsOpen(false);
 }
 
+const [activeTab, setActiveTab] = useState(0);
+
 if(!isOpen) {
   return (
     <>
@@ -80,16 +41,24 @@ if(!isOpen) {
         <h1>State Tabs Card Display</h1>
 
         <div className="tab-buttons">
-          <button className="tab-button  active">Tab 1</button>
-          <button className="tab-button">Tab 2</button>
-          <button className="tab-button">Tab 3</button>
+          <button className={`tab-button ${activeTab === 0 ? 'active' : ''}`}onClick={() => setActiveTab(0)}>Tab 1</button>
+          <button className={`tab-button ${activeTab === 1 ? 'active' : ''}`}onClick={() => setActiveTab(1)}>Tab 2</button>
+          <button className={`tab-button ${activeTab === 2 ? 'active' : ''}`}onClick={() => setActiveTab(2)}>Tab 3</button>
         </div>
 
-        <CardContainer cards={tabData[0]} />
+        <CardContainer cards={tabData[activeTab]} />
 
         <div className="navigation-buttons">
-          <button>&lt; Previous</button>
-          <button>Next &gt;</button>
+          <button onClick={() => {
+            if(activeTab > 0){
+              setActiveTab(activeTab - 1);
+            }
+          }}>&lt; Previous</button>
+          <button onClick={() => {
+            if(activeTab < tabData.length -1){
+              setActiveTab(activeTab + 1);
+            }
+          }}>Next &gt;</button>
         </div>
 
         <Footer />

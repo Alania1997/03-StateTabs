@@ -1,0 +1,42 @@
+export const cardData = [
+    {
+      title: "Mocha",
+      description: "Developing a fintech product for the international market",
+      date: "April 24, 2024",
+      imageUrl: "/img-1.jpeg",
+      tags: ["#fintech", "#international", "#market"],
+      archived: false,
+    },
+    {
+      title: "Money Forward",
+      description: "Frontend and backend for a salary payout service on demand",
+      date: "January 16, 2024",
+      imageUrl: "/img-2.jpeg",
+      tags: ["#finance", "#service", "#payouts"],
+      archived: false,
+    },
+    {
+      title: "ActivePlatform",
+      description: "Adobe integration and platform development for comprehensive subscriptions",
+      date: "November 10, 2022",
+      imageUrl: "/img-4.jpeg",
+      tags: ["#integration", "#platform", "#subscription"],
+      archived: false,
+    },
+    {
+      title: "START",
+      description: "Developed an A/B testing platform for a streaming service",
+      date: "September 22, 2022",
+      imageUrl: "/img-5.jpeg",
+      tags: ["#A/B testing", "#streaming", "#platform"],
+      archived: false,
+    },
+    {
+      title: "Mindbox",
+      description: "Supporting the redesign of an automated marketing platform",
+      date: "September 21, 2022",
+      imageUrl: "/img-6.jpeg",
+      tags: ["#marketing", "#redesign", "#automation"],
+      archived: false,
+    },
+  ];
